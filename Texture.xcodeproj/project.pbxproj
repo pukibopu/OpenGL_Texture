@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		27C77287290A8410006C8A20 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27C77286290A8410006C8A20 /* main.cpp */; };
+		27C77295290A848A006C8A20 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 27C77294290A848A006C8A20 /* glad.c */; };
+		27C772B1290A886B006C8A20 /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C772B0290A886B006C8A20 /* libglfw.3.dylib */; };
+		27C772B2290A886B006C8A20 /* libglfw.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 27C772B0290A886B006C8A20 /* libglfw.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		27C772B3290A887F006C8A20 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C772AF290A885D006C8A20 /* libglfw3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,11 +24,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		27C772A9290A854B006C8A20 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				27C772B2290A886B006C8A20 /* libglfw.3.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		27C77283290A8410006C8A20 /* Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Texture; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C77286290A8410006C8A20 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		27C77294290A848A006C8A20 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../openGL_cpp/libs/glad.c; sourceTree = "<group>"; };
+		27C772A4290A8525006C8A20 /* Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Texture; sourceTree = BUILT_PRODUCTS_DIR; };
+		27C772AD290A85FF006C8A20 /* shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		27C772AF290A885D006C8A20 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../openGL_cpp/libs/libglfw3.a; sourceTree = "<group>"; };
+		27C772B0290A886B006C8A20 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = ../openGL_cpp/libs/libglfw.3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27C772B1290A886B006C8A20 /* libglfw.3.dylib in Frameworks */,
+				27C772B3290A887F006C8A20 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,25 +62,45 @@
 		27C7727A290A8410006C8A20 = {
 			isa = PBXGroup;
 			children = (
+				27C77294290A848A006C8A20 /* glad.c */,
 				27C77285290A8410006C8A20 /* Texture */,
-				27C77284290A8410006C8A20 /* Products */,
+				27C772A4290A8525006C8A20 /* Texture */,
+				27C772AE290A885D006C8A20 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		27C77284290A8410006C8A20 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				27C77283290A8410006C8A20 /* Texture */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		27C77285290A8410006C8A20 /* Texture */ = {
 			isa = PBXGroup;
 			children = (
+				27C772AB290A85B9006C8A20 /* shaders */,
+				27C772AA290A85AF006C8A20 /* includes */,
 				27C77286290A8410006C8A20 /* main.cpp */,
 			);
 			path = Texture;
+			sourceTree = "<group>";
+		};
+		27C772AA290A85AF006C8A20 /* includes */ = {
+			isa = PBXGroup;
+			children = (
+				27C772AD290A85FF006C8A20 /* shader.hpp */,
+			);
+			path = includes;
+			sourceTree = "<group>";
+		};
+		27C772AB290A85B9006C8A20 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
+		27C772AE290A885D006C8A20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27C772B0290A886B006C8A20 /* libglfw.3.dylib */,
+				27C772AF290A885D006C8A20 /* libglfw3.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +113,7 @@
 				27C7727F290A8410006C8A20 /* Sources */,
 				27C77280290A8410006C8A20 /* Frameworks */,
 				27C77281290A8410006C8A20 /* CopyFiles */,
+				27C772A9290A854B006C8A20 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -79,7 +121,7 @@
 			);
 			name = Texture;
 			productName = Texture;
-			productReference = 27C77283290A8410006C8A20 /* Texture */;
+			productReference = 27C772A4290A8525006C8A20 /* Texture */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +147,7 @@
 				Base,
 			);
 			mainGroup = 27C7727A290A8410006C8A20;
-			productRefGroup = 27C77284290A8410006C8A20 /* Products */;
+			productRefGroup = 27C7727A290A8410006C8A20;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -120,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27C77287290A8410006C8A20 /* main.cpp in Sources */,
+				27C77295290A848A006C8A20 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +282,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /Users/j10j0/Desktop/openGL_cpp/include;
+				LIBRARY_SEARCH_PATHS = /Users/j10j0/Desktop/Texture/libs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -247,6 +292,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /Users/j10j0/Desktop/openGL_cpp/include;
+				LIBRARY_SEARCH_PATHS = /Users/j10j0/Desktop/Texture/libs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

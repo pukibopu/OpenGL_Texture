@@ -13,6 +13,7 @@
 
 void processInput(GLFWwindow *window);
 void framebuffer_size_callback(GLFWwindow *window,int width,int height);
+float maxValue=0.2f;
 int main() {
     //initial
     glfwInit();
@@ -142,6 +143,7 @@ int main() {
         glBindTexture(GL_TEXTURE_2D, texture2);
         
         shader.use();
+        shader.setFloat("doValue", maxValue);
         
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -160,8 +162,20 @@ int main() {
 void framebuffer_size_callback(GLFWwindow *window,int width,int height){
     glViewport(0,0,width,height);
 }
-void processInput(GLFWwindow *window){
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE)){
+void processInput(GLFWwindow *window ){
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE)== GLFW_PRESS){
         glfwSetWindowShouldClose(window, true);
+    }
+    if(glfwGetKey(window, GLFW_KEY_W)== GLFW_PRESS){
+        if(maxValue>=1.0f){
+            maxValue=1.0f;
+        }else
+         maxValue+=0.0005f;
+    }
+    if(glfwGetKey(window, GLFW_KEY_S)== GLFW_PRESS){
+        if(maxValue<=0.0f){
+            maxValue=0.0f;
+        }else
+         maxValue-=0.0005f;
     }
 }
